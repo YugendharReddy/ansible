@@ -13,16 +13,6 @@
      - tree
      when: ansible_os_family== "Debian" 
 
-   - name: strat the service on ubuntu
-     service: 
-      name: "{{ item }}"
-      state: started
-     with_items:
-      - git
-      - tree
-      - wget
-     when: ansible_os_family== "Debian"
-
    - name: install tree wget and git on RedHat
      yum:
       name: "{{ item }}"
@@ -33,15 +23,7 @@
       - wget
      when: ansible_os_family== "RedHat"
 
-   - name: start the service on RedHat
-     service:
-      name: "{{ item }}"
-      state: started
-     with_items:
-      - git 
-      - tree
-      - wget
-     when: ansible_os_family== "RedHat" 
+
 
     
         
