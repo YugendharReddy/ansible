@@ -12,7 +12,7 @@
      - wget
      - tree
      when: ansible_os_family== "Debian" 
-
+     
    - name: install tree wget and git on RedHat
      yum:
       name: "{{ item }}"
