@@ -5,7 +5,7 @@
   tasks:
    - name: install git tree and wget on ubuntu
      apt:
-      name: {{ item }}
+      name: "{{ item }}"
       state: present
      with_items: 
      - git
@@ -15,7 +15,7 @@
 
    - name: strat the service on ubuntu
      service: 
-      name: {{ item }}
+      name: "{{ item }}"
       state: started
      with_items:
       - git
@@ -25,7 +25,7 @@
 
    - name: install tree wget and git on RedHat
      yum:
-      name: {{ item }}
+      name: "{{ item }}"
       state: present
      with_items:
       - git
@@ -35,7 +35,7 @@
 
    - name: start the service on RedHat
      service:
-      name: {{ item }}
+      name: "{{ item }}"
       state: started
      with_items:
       - git 
