@@ -1,0 +1,47 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+   - name: install git tree and wget on ubuntu
+     apt:
+      name: {{ "items" }}
+      state: present
+     with_items: 
+     - git
+     - wget
+     - tree
+     when: ansible_os_family== "Debian" 
+
+   - name: strat the service on ubuntu
+     service: 
+      name: {{ "items" }}
+      state: started
+     with_items:
+      - git
+      - tree
+      - wget
+     when: ansible_os_family== "Debian"
+
+   - name: install tree wget and git on RedHat
+     yum:
+      name: {{ "items" }}
+      state: present
+     with_items:
+      - git
+      - tree
+      - wget
+     when: ansible_os_family== "RedHat"
+
+   - name: start the service on RedHat
+     service:
+      name: {{ "items" }}
+      state: started
+     with_items:
+      - git 
+      - tree
+      - wget
+     when: ansible_os_family== "RedHat" 
+
+    
+        
